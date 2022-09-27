@@ -53,3 +53,33 @@ public class DemoApplication {
     }
 ----
 
+
+## 3. https://spring.io/guides/gs/consuming-rest/[consuming-web-service]
+
+Creates a service that consumes a RESTful web service.
+
+[source,java]
+----
+  @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
+    }
+
+
+    @Bean
+    public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+        return args -> {
+            logger.info("Command runner starting to work...");
+            Quote quote = restTemplate.getForObject(
+                    "https://quoters.apps.pcfone.io/api/random", Quote.class);
+            logger.info("Command runner receives [{}]", quote.toString());
+        };
+    }
+----
+
+When the application startup, the commandRunner will send a GET request to `https://quoters.apps.pcfone.io/api/random` that returns a quote as bellows:
+
+`Quote{type='success', value=Value{id=1, quote='Working with Spring Boot is like pair-programming with the Spring developers.'}}`
+
+
+

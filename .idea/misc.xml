@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/guides/01-building-restful-web-service" />
     <file type="web" url="file://$PROJECT_DIR$/guides/02-scheduling-tasks" />
+    <file type="web" url="file://$PROJECT_DIR$/guides/03-consuming-service" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
