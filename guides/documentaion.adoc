@@ -24,3 +24,32 @@ Let's have a close look in the command.
 2. `java -jar build/libs/xx.jar`: execute the jar
 
 
+## 2. https://spring.io/guides/gs/scheduling-tasks/[Scheduling tasks]
+
+The service will execute the given task every period of time. In our case, it prints the current time every 5000 milliseconds.
+
+
+[source, java]
+----
+@EnableScheduling // This is to enable scheduling ability for our application.
+@SpringBootApplication
+public class DemoApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+
+}
+----
+
+[source, java]
+----
+ /**
+     * Executes the task every 5000 milliseconds
+     */
+    @Scheduled(fixedRate = 5000)
+    public void reportCurrentTime(){
+        LOGGER.info("The time is now {}", dataFormat.format(new Date()));
+    }
+----
+
