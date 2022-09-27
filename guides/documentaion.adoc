@@ -1,0 +1,26 @@
+# Spring Journey
+
+This directory is a practical guide that follows https://spring.io/guides#getting-started-guides[spring guides]
+
+
+## 1. https://spring.io/guides/gs/rest-service/[Building a RESTful Web Service]
+
+The service will handle GET request for `/greeting`, optionally with a `name` parameter in the query string. The GET request should return `200 OK` response with JSON in the body that represents a greeting. it looks like the following output:
+[source, json]
+----
+{
+    "id": 1,
+    "content": "Hello, World!"
+}
+----
+
+### Run command
+
+`./gradlew build && java -jar build/libs/01-building-restful-web-service-0.0.1-SNAPSHOT.jar`
+
+Let's have a close look in the command.
+
+1. `./gradlw build`: build the java code as jar package
+2. `java -jar build/libs/xx.jar`: execute the jar
+
+
