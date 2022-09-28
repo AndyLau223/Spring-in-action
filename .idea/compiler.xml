@@ -5,6 +5,9 @@
       <module name="accessing-relational-data-using-jdbc-with-spring" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring.main" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring.test" target="17" />
+      <module name="authenticating-with-ldap" target="17" />
+      <module name="authenticating-with-ldap.main" target="17" />
+      <module name="authenticating-with-ldap.test" target="17" />
       <module name="consuming-service" target="17" />
       <module name="consuming-service.main" target="17" />
       <module name="consuming-service.test" target="17" />

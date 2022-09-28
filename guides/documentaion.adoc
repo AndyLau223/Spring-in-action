@@ -129,3 +129,5 @@ dependencies {
 
 This service is to demonstrate how to create a server application that can receive HTTP multi-part file uploads. You can run through the code to get details.
 
+## 6. https://spring.io/guides/gs/authenticating-ldap/[Authenticating a User with LDAP]
+
