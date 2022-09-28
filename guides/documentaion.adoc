@@ -84,7 +84,7 @@ When the application startup, the commandRunner will send a GET request to `http
 
 ## 4. https://spring.io/guides/gs/relational-data-access/[Accessing Relational Data using JDBC with Spring]
 
-This service to illustrate how to access relational data with Spring using JDBCTemplate.
+This service is to illustrate how to access relational data with Spring using JDBCTemplate.
 
 [source,groovy]
 ----
@@ -124,3 +124,7 @@ dependencies {
     }
 ----
 
+
+## 5. https://spring.io/guides/gs/uploading-files/[Uploading Files]
+
+This service is to demonstrate how to create a server applicaton that can receive HTTP multi-part file uploads.

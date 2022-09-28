@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../guides/04-accessing-relational-data-using-jdbc-with-spring">
+      <excludeFolder url="file://$MODULE_DIR$/../../guides/04-accessing-relational-data-using-jdbc-with-spring/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../guides/04-accessing-relational-data-using-jdbc-with-spring/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
