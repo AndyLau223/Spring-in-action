@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/guides" />
+            <option value="$PROJECT_DIR$/guides/01-building-restful-web-service" />
+            <option value="$PROJECT_DIR$/guides/02-scheduling-tasks" />
+            <option value="$PROJECT_DIR$/guides/03-consuming-service" />
+            <option value="$PROJECT_DIR$/guides/04-accessing-relational-data-using-jdbc-with-spring" />
+          </set>
+        </option>
+      </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/guides/01-building-restful-web-service" />
@@ -29,6 +45,16 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/guides/03-consuming-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides/04-accessing-relational-data-using-jdbc-with-spring" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides/04-accessing-relational-data-using-jdbc-with-spring" />
           </set>
         </option>
       </GradleProjectSettings>
