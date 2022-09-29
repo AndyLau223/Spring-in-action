@@ -130,7 +130,7 @@ You can run through the code to get details.
 
 ## 6. https://spring.io/guides/gs/authenticating-ldap/[Authenticating a User with LDAP]
 
-1. Adds dependencies
+1.Adds dependencies
 
 [source,groovy]
 ----
@@ -141,7 +141,7 @@ implementation "org.springframework.security:spring-security-ldap"
 implementation "com.unboundid:unboundid-ldapsdk"
 ----
 
-2. Congiures web security
+2.Congiures web security
 
 [source, java]
 ----
@@ -174,7 +174,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 }
 ----
 
-3. add properties and ldif file
+3.add properties and ldif file
 
 [source, yaml]
 ----
