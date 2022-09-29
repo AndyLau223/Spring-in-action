@@ -330,6 +330,9 @@ You will use `RabbitTemplate` to send messages, and you will register a `Receive
 [source, java]
 ----
 // configures RabbitMq
+@SpringBootApplication
+public class MessagingWithRabbitmqApplication {
+
      static final String topicExchangeName ="spring-boot-exchange";
      static final String queueName = "spring-boot";
 
@@ -363,6 +366,8 @@ You will use `RabbitTemplate` to send messages, and you will register a `Receive
     public static void main(String[] args) {
         SpringApplication.run(MessagingWithRabbitmqApplication.class, args).close();
     }
+
+}
 ----
 
 [source, java]
