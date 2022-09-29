@@ -18,6 +18,9 @@
       <module name="demo" target="17" />
       <module name="demo.main" target="17" />
       <module name="demo.test" target="17" />
+      <module name="messaging-with-rabbitmq" target="17" />
+      <module name="messaging-with-rabbitmq.main" target="17" />
+      <module name="messaging-with-rabbitmq.test" target="17" />
       <module name="messaging-with-redis" target="17" />
       <module name="messaging-with-redis.main" target="17" />
       <module name="messaging-with-redis.test" target="17" />
