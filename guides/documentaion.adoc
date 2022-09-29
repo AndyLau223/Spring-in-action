@@ -283,3 +283,111 @@ private static final Logger logger =
     }
 ----
 
+
+## 8. https://spring.io/guides/gs/messaging-rabbitmq/#initial[Messaging with RabbitMQ]
+
+You will build an application that publishes a message by using Spring AMAP's `RabbitTemplate` and subscribes to the message on a POJO by using `MessageListenerAdapter`.
+
+### Set up the RabbitMQ Broker
+
+Before you can build your messaging application, you need to set up a server to handle receiving and sending messages.
+
+RabbitMQ is an AMQP server. The server is freely available at https://www.rabbitmq.com/download.html. You can download it manually or, if you use a Mac with Homebrew, by running the following command in a terminal window:
+
+[source, bash]
+----
+// installs rabbitmq on your machine
+brew install rabbitmq
+// bring up rabbitmq server
+rabbitmq-server
+----
+
+
+You also can use Docker to launch a RabbitMQ server if you have docker running locally. Defines `docker-compose.yml` in the project.
+[source, dockerfile]
+----
+version: '2.1'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+----
+* `docker-compose up` brings up RabbitMQ server runnning as docker container.
+
+
+### Register the Listener and Send a Message
+Spring AMQP’s `RabbitTemplate` provides everything you need to send and receive messages with RabbitMQ. However, you need to:
+
+* Configure a message listener container
+* Declare the queue, the exchange, and the binding between them.
+* Configure a component to send some messages to test the listener
+
+You will use `RabbitTemplate` to send messages, and you will register a `Receiver` with the message listener container to receive messages.
+
+[source, java]
+----
+// configures RabbitMq
+     static final String topicExchangeName ="spring-boot-exchange";
+     static final String queueName = "spring-boot";
+
+    @Bean
+    Binding binding(Queue queue, TopicExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with("foo.bar.#");
+    }
+
+    @Bean Queue queue(){
+        return new Queue(queueName, false);
+    }
+
+    @Bean TopicExchange exchange(){
+        return new TopicExchange(topicExchangeName);
+    }
+
+    @Bean SimpleMessageListenerContainer container(ConnectionFactory connectionFactory,
+                                             MessageListenerAdapter listenerAdapter) {
+        return new SimpleMessageListenerContainerBuilder()
+                .getInstance()
+                .withConnectionFactory(connectionFactory)
+                .withQueueName(queueName)
+                .withMessageListener(listenerAdapter)
+                .builder();
+    }
+
+    @Bean MessageListenerAdapter listenerAdapter(Receiver receiver) {
+        return new MessageListenerAdapter(receiver, "receiveMessage");
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(MessagingWithRabbitmqApplication.class, args).close();
+    }
+----
+
+[source, java]
+----
+//sending messages
+@Component
+public class Runner implements CommandLineRunner {
+
+    private final RabbitTemplate rabbitTemplate;
+    private final Receiver receiver;
+
+
+    public Runner(Receiver receiver, RabbitTemplate rabbitTemplate) {
+        this.receiver = receiver;
+        this.rabbitTemplate = rabbitTemplate;
+    }
+
+
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("Sending message...");
+        rabbitTemplate.convertAndSend(MessagingWithRabbitmqApplication.topicExchangeName, "foo.bar.baz", "Hello from RabbitMQ!");
+        receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
+    }
+}
+----
+
+
