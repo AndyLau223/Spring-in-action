@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/guides/04-accessing-relational-data-using-jdbc-with-spring" />
             <option value="$PROJECT_DIR$/guides/05-uploading-files" />
             <option value="$PROJECT_DIR$/guides/06-authenticating-with-ldap" />
+            <option value="$PROJECT_DIR$/guides/07-messaging-with-redis" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -77,6 +78,16 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/guides/06-authenticating-with-ldap" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides/messaging-with-redis" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides/messaging-with-redis" />
           </set>
         </option>
       </GradleProjectSettings>

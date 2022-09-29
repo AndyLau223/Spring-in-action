@@ -2,6 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="05-authenticating-with-ldap" target="17" />
+      <module name="05-authenticating-with-ldap.main" target="17" />
+      <module name="05-authenticating-with-ldap.test" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring.main" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring.test" target="17" />
@@ -14,6 +17,9 @@
       <module name="demo" target="17" />
       <module name="demo.main" target="17" />
       <module name="demo.test" target="17" />
+      <module name="messaging-with-redis" target="17" />
+      <module name="messaging-with-redis.main" target="17" />
+      <module name="messaging-with-redis.test" target="17" />
       <module name="uploading-files" target="17" />
       <module name="uploading-files.main" target="17" />
       <module name="uploading-files.test" target="17" />

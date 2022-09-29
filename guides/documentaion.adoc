@@ -185,3 +185,101 @@ spring.ldap.embedded.port=8389
 
 link:06-authenticating-with-ldap/src/main/resources/test-server.ldif[test-server.ldif]
 
+## 7. https://spring.io/guides/gs/messaging-redis/#initial[messaging with redis]
+
+This service went through the process of using Spring Data Redis to publish and subscribe to messages sent with Redis.
+
+
+### Standing up a Redis server
+Before you can build a messaging application, you need to set up the server that will handle receiving and sending messages.
+
+Redis is an open source, BSD-licensed, key-value data store that also comes with a messaging system. The server is freely available at https://redis.io/download. You can download it manually, or, if you use a Mac, with Homebrew, by running the following command in a terminal window:
+[source, bash]
+----
+// installing redis by using brew
+brew install redis
+
+//bring up the redis service
+redis-server
+----
+
+
+### Register the listener and Send a Message
+[source, java]
+----
+private static final Logger logger =
+            LoggerFactory.getLogger(MessagingWithRedisApplication.class);
+
+    /**
+     * Defines MessageListenerContainer
+     * @param connectionFactory
+     * @param listenerAdapter
+     * @return
+     */
+    @Bean
+    RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory,
+                                            MessageListenerAdapter listenerAdapter) {
+        RedisMessageListenerContainer container
+                = new RedisMessageListenerContainer();
+
+        container.setConnectionFactory(connectionFactory);
+        container.addMessageListener(listenerAdapter, new PatternTopic("chat"));
+
+        return container;
+    }
+
+    /**
+     * Registers a message listener that's to be used in `container()` method. and will listen
+     * to the `chat` topic.
+     *
+     * Because of `Receiver` class is a POJO, it needs to be wrapped in a message listener adapter
+     * that implements the `MessageListener` interface(which is required by `addMessageListener()`)
+     *
+     * The message listener adapter is also configured to call the `receiveMessage()` method on `Receiver`
+     * when a message arrives.
+     *
+     * @param receiver
+     * @return
+     */
+    @Bean
+    MessageListenerAdapter listenerAdapter(Receiver receiver) {
+        return new MessageListenerAdapter(receiver, "receiveMessage");
+    }
+
+    /**
+     * customized Receiver
+     * @return
+     */
+    @Bean
+    Receiver receiver(){
+        return new Receiver();
+    }
+
+    /**
+     * `StringRedisTemplate` is an implementation of `RedisTemplate` that is focused on the
+     * common use of Reids, where both keys and values are `String` instances.
+     * @param connectionFactory
+     * @return
+     */
+    @Bean
+    StringRedisTemplate template(RedisConnectionFactory connectionFactory) {
+        return new StringRedisTemplate(connectionFactory);
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        ConfigurableApplicationContext ctx =
+                SpringApplication.run(MessagingWithRedisApplication.class, args);
+        StringRedisTemplate template = ctx.getBean(StringRedisTemplate.class);
+        Receiver receiver = ctx.getBean(Receiver.class);
+
+        while (receiver.getCount() == 0) {
+
+            logger.info("Sending message...");
+            template.convertAndSend("chat", "Hello from Redis!");
+            Thread.sleep(500L);
+        }
+
+        System.exit(0);
+    }
+----
+
