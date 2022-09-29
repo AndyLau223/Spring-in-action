@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/guides/08-messaging-with-rabbitmq" />
             <option value="$PROJECT_DIR$/guides/09-accessing-data-with-neo4j" />
             <option value="$PROJECT_DIR$/guides/10-validating-form-input" />
+            <option value="$PROJECT_DIR$/guides/11-restful-web-service-with-actuator" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -111,6 +112,16 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/guides/10-validating-form-input" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides/11-restful-web-service-with-actuator" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides/11-restful-web-service-with-actuator" />
           </set>
         </option>
       </GradleProjectSettings>

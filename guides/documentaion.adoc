@@ -648,3 +648,83 @@ Congratulations! You are old enough to sign up for this site.
 </html>
 ----
 
+## 11. https://spring.io/guides/gs/actuator-service/[RESTful web service with actuator]
+
+Builds a RESTful web service with actuator, the business functionality is same as `01-building-restful-web-service`. The interesting part is to observe how it'd be difference with and without actuator.
+
+First, let's startup a plain spring boot application by running command `./gradlew clean build && java -jar build/libs/11-restful-web-service-with-actuator-0.0.1-SNAPSHOT.jar`.
+
+after that we execute commands as follows
+[source, bash]
+----
+$ curl localhost:8080
+{"timestamp":1384788106983,"error":"Not Found","status":404,"message":""}
+----
+
+The output of the preceding command indicates that the server is running but that you have not define any business endpoints yet.
+
+Now let's see what will happen with another command
+[source, bash]
+----
+$ curl localhost:8080/actuator/health
+{"status":"UP"}
+----
+
+From the preceding output, we have the successfully response and the status of the service. This is provided by https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator[Actuator Project].
+
+### Switch to a Different Server Port
+
+[source, yaml]
+----
+server.port: 9000
+management.server.port: 9001
+management.server.address: 127.0.0.1
+----
+The service now starts on port 9000, and management port is 9001
+[source, bash]
+----
+$ curl localhost:8080/hello-world
+curl: (52) Empty reply from server
+$ curl localhost:9000/hello-world
+{"id":1,"content":"Hello, Stranger!"}
+$ curl localhost:9001/actuator/health
+{"status":"UP"}
+----
+
+integration test for the service
+[source, java]
+----
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestPropertySource(properties = {"management.port=0"})
+class ApplicationTests {
+
+    @LocalServerPort
+    private int port;
+
+    @Value("${local.management.port}")
+    private int mgt;
+
+    @Autowired
+    private TestRestTemplate testRestTemplate;
+
+    @Test
+    public void shouldReturn200WhenSendingRequestToController(){
+        @SuppressWarnings("rawtypes")
+        ResponseEntity<Map> entity = this.testRestTemplate.getForEntity(
+                "http://localhost:" + this.port + "/hello-world", Map.class
+        );
+
+        then(entity.getStatusCode()).isEqualTo(OK);
+    }
+
+    @Test
+    public void shouldReturn200WhenSendingRequestToManagementEndpoint(){
+        @SuppressWarnings("rawtypes")
+        ResponseEntity<Map> entity = this.testRestTemplate.getForEntity(
+                "http://localhost:" + this.mgt + "/actuator", Map.class);
+        then(entity.getStatusCode()).isEqualTo(OK);
+    }
+
+}
+----
