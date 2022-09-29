@@ -551,3 +551,100 @@ public class Application {
 
 }
 ----
+
+## 10. https://spring.io/guides/gs/validating-form-input/[Validating Form Input]
+
+You will build a simple Spring MVC application that takes user input and checks the input by using standard validation annotations. You will also see the error message on the screen so that user can re-enter input to make it be valid.
+
+[source, java]
+----
+
+import lombok.Data;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Data
+public class PersonForm {
+
+    @NotNull // Does not allow a null value, which is what Spring MVC generates if the entry is empty.
+    @Size(min=2, max=30) //  Allows names between 2 and 30 characters long.
+    private String name;
+
+    @NotNull
+    @Min(18)//: Does not allow the age to be less than 18.
+    private Integer age;
+
+    public String toString() {
+        return "Person(Name: " + this.name + ", Age: " + this.age + ")";
+    }
+}
+----
+
+[source, java]
+----
+
+@Controller
+public class WebController implements WebMvcConfigurer {
+
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/results").setViewName("results");
+    }
+
+
+    @GetMapping("/")
+    public String showForm(PersonForm personForm){
+        return "form";
+    }
+
+
+    @PostMapping("/")
+    public String checkPersonInfo(@Valid PersonForm personForm,
+                                  BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return "form";
+        }
+        return "redirect:/results";
+    }
+
+}
+----
+
+[source, html]
+----
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<form action="#" th:action="@{/}" th:object="${personForm}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" th:field="*{age}" /></td>
+            <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+----
+
+[source, html]
+----
+<html>
+<body>
+Congratulations! You are old enough to sign up for this site.
+</body>
+</html>
+----
+
