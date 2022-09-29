@@ -414,7 +414,7 @@ brew install neo4j
 neo4j start
 ----
 
-By default the username and password is `neo4j` and `neo4j`, if you'd like to change the password, then login http://127.0.0.1:7474/browser/, it would give a chance the amend the login credential.
+By default the username and password is `neo4j` and `neo4j`, if you'd like to change the password, then login http://127.0.0.1:7474/browser/, it would give a chance to amend the login credential.
 
 
 [source, java]
