@@ -728,3 +728,70 @@ class ApplicationTests {
 
 }
 ----
+
+## 12. https://spring.io/guides/gs/messaging-jms/#initial[messaging with jms]
+
+Using `JmsTemplate` to post a single message and subscribes to it with a `@JmsListener` annotated method of a managed bean.
+
+
+[source, java]
+----
+
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Receiver {
+
+  @JmsListener(destination = "mailbox", containerFactory = "myFactory")
+  public void receiveMessage(Email email) {
+    System.out.println("Received <" + email + ">");
+  }
+
+}
+----
+
+`Receiver` is also known as a **message-driven POJO**. As the code shows, there is no need to implement any particular interface or for the method to have any particular name.
+
+The `JmsListener` annotation defines the name of the `destination` that this method should listen to and the reference to the `JmsListenerContainerFactory` to use to create the underlying message listener container.
+
+
+[source, java]
+----
+@SpringBootApplication
+@EnableJms
+public class Application {
+
+  @Bean
+  public JmsListenerContainerFactory<?> myFactory(ConnectionFactory connectionFactory,
+                          DefaultJmsListenerContainerFactoryConfigurer configurer) {
+    DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+    // This provides all boot's default to this factory, including the message converter
+    configurer.configure(factory, connectionFactory);
+    // You could still override some of Boot's default if necessary.
+    return factory;
+  }
+
+  @Bean // Serialize message content to json using TextMessage
+  public MessageConverter jacksonJmsMessageConverter() {
+    MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
+    converter.setTargetType(MessageType.TEXT);
+    converter.setTypeIdPropertyName("_type");
+    return converter;
+  }
+
+  public static void main(String[] args) {
+    // Launch the application
+    ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+
+    JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
+
+    // Send a message with a POJO - the template reuse the message converter
+    System.out.println("Sending an email message.");
+    jmsTemplate.convertAndSend("mailbox", new Email("info@example.com", "Hello"));
+  }
+
+}
+----
+
+`@EnableJms` triggers the discovery of methods annotated with `@JmsListener`, creating the message listener container under the covers.

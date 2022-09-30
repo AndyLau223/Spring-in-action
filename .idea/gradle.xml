@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/guides/09-accessing-data-with-neo4j" />
             <option value="$PROJECT_DIR$/guides/10-validating-form-input" />
             <option value="$PROJECT_DIR$/guides/11-restful-web-service-with-actuator" />
+            <option value="$PROJECT_DIR$/guides/12-messaging-with-jsm" />
           </set>
         </option>
       </GradleProjectSettings>

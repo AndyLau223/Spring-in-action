@@ -15,6 +15,9 @@
       <module name="05-authenticating-with-ldap.main" target="17" />
       <module name="05-authenticating-with-ldap.test" target="17" />
       <module name="08-messaing-with-rabbitmq" target="1.8" />
+      <module name="11-messaging-with-jsm.main" target="17" />
+      <module name="11-messaging-with-jsm.test" target="17" />
+      <module name="12-messaging-with-jsm" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring.main" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring.test" target="17" />
