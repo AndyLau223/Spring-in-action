@@ -795,3 +795,42 @@ public class Application {
 ----
 
 `@EnableJms` triggers the discovery of methods annotated with `@JmsListener`, creating the message listener container under the covers.
+
+## 13. https://spring.io/guides/gs/batch-processing/#scratch[batch-service]
+
+Builds a service that import data from a CSV spreadsheet, transforms it with custom code, and stores the final results in a database.
+
+
+1.mock data in `src/main/resources/sample-data.csv`
+[source, text]
+----
+Jill,Doe
+Joe,Doe
+Justin,Doe
+Jane,Doe
+John,Doe
+----
+
+2.create tables
+[source, sql]
+----
+DROP TABLE people IF EXISTS;
+
+CREATE TABLE people  (
+    person_id BIGINT IDENTITY NOT NULL PRIMARY KEY,
+    first_name VARCHAR(20),
+    last_name VARCHAR(20)
+);
+----
+
+3.create business class
+link:13-batch-service/src/main/java/com/example/batchservice/Person.java[Person.class]
+
+4.create PersonItemProcessor
+link:13-batch-service/src/main/java/com/example/batchservice/PersonItemProcessor.java[PersonItemProcessor.class]
+
+5.batch configuration
+link:13-batch-service/src/main/java/com/example/batchservice/BatchConfiguration.java[BatchConfiguration.class]
+
+6.implement completion listener
+link:13-batch-service/src/main/java/com/example/batchservice/JobCompletionNotificationListener.java[JobCompletionNotificationListener.class]
