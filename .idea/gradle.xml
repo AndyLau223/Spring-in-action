@@ -25,6 +25,17 @@
             <option value="$PROJECT_DIR$/guides/12-messaging-with-jsm" />
             <option value="$PROJECT_DIR$/guides/13-batch-service" />
             <option value="$PROJECT_DIR$/guides/14-spring-security" />
+            <option value="$PROJECT_DIR$/guides/15-hypermedia-driven-resultful-web-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides/15-hypermedia-driven-resultful-web-service" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides/15-hypermedia-driven-resultful-web-service" />
           </set>
         </option>
       </GradleProjectSettings>
