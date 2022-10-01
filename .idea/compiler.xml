@@ -1,20 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
+        </processorPath>
+        <module name="Spring-in-action.guides.10-validating-form-input.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="17">
+      <module name="01-building-restful-web-service" target="17" />
+      <module name="01-building-restful-web-service.main" target="17" />
+      <module name="01-building-restful-web-service.test" target="17" />
+      <module name="02-scheduling-tasks" target="17" />
+      <module name="02-scheduling-tasks.main" target="17" />
+      <module name="02-scheduling-tasks.test" target="17" />
+      <module name="03-consuming-service" target="17" />
+      <module name="03-consuming-service.main" target="17" />
+      <module name="03-consuming-service.test" target="17" />
       <module name="05-authenticating-with-ldap" target="17" />
       <module name="05-authenticating-with-ldap.main" target="17" />
       <module name="05-authenticating-with-ldap.test" target="17" />
+      <module name="07-messaging-with-redis" target="17" />
+      <module name="07-messaging-with-redis.main" target="17" />
+      <module name="07-messaging-with-redis.test" target="17" />
+      <module name="08-messaging-with-rabbitmq" target="17" />
+      <module name="08-messaging-with-rabbitmq.main" target="17" />
+      <module name="08-messaging-with-rabbitmq.test" target="17" />
       <module name="08-messaing-with-rabbitmq" target="1.8" />
+      <module name="09-accessing-data-with-neo4j" target="17" />
+      <module name="09-accessing-data-with-neo4j.main" target="17" />
+      <module name="09-accessing-data-with-neo4j.test" target="17" />
+      <module name="10-validating-form-input" target="17" />
+      <module name="10-validating-form-input.main" target="17" />
+      <module name="10-validating-form-input.test" target="17" />
       <module name="11-messaging-with-jsm.main" target="17" />
       <module name="11-messaging-with-jsm.test" target="17" />
+      <module name="11-restful-web-service-with-actuator" target="17" />
+      <module name="11-restful-web-service-with-actuator.main" target="17" />
+      <module name="11-restful-web-service-with-actuator.test" target="17" />
       <module name="12-messaging-with-jsm" target="17" />
+      <module name="13-batch-service" target="17" />
+      <module name="13-batch-service.main" target="17" />
+      <module name="13-batch-service.test" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring.main" target="17" />
       <module name="accessing-relational-data-using-jdbc-with-spring.test" target="17" />
       <module name="authenticating-with-ldap" target="17" />
       <module name="authenticating-with-ldap.main" target="17" />
       <module name="authenticating-with-ldap.test" target="17" />
+      <module name="com.example.14-spring-security" target="17" />
+      <module name="com.example.14-spring-security.main" target="17" />
+      <module name="com.example.14-spring-security.test" target="17" />
       <module name="consuming-service" target="17" />
       <module name="consuming-service.main" target="17" />
       <module name="consuming-service.test" target="17" />
