@@ -71,6 +71,16 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides2/19-creating-asynchronous-methods" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides2/19-creating-asynchronous-methods" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
