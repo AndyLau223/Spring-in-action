@@ -61,6 +61,16 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides2/18-managing-transactions" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides2/18-managing-transactions" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
