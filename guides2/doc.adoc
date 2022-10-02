@@ -1,0 +1,3 @@
+# Spring journey part 2
+
+## 17. Accessing Data in Pivotal GemFire[]

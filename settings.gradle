@@ -13,3 +13,6 @@ include ':guides:12-messaging-with-jsm'
 include ':guides:13-batch-service'
 include ':guides:14-spring-security'
 include ':guides:15-hypermedia-driven-resultful-web-service'
+
+// part 2
+include ':guides2:17-accessing-data-in-pivotal'
