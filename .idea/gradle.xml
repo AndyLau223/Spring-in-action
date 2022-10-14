@@ -101,6 +101,46 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides2/22-spring-boot-with-docker" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides2/22-spring-boot-with-docker" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides2/23-crud-ui-with-vaadin" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides2/23-crud-ui-with-vaadin" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides2/24-registration-and-discovery/eureka-client" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides2/24-registration-and-discovery/eureka-client" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides2/24-registration-and-discovery/eureka-server" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides2/24-registration-and-discovery/eureka-server" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
