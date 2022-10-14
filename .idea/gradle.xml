@@ -91,6 +91,16 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/guides2/21-caching-data-with-spring" />
+        <option name="gradleHome" value="$USER_HOME$/opt/gradle/gradle-7.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/guides2/21-caching-data-with-spring" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
